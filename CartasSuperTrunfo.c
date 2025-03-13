@@ -25,6 +25,8 @@ typedef struct Carta
 int main() {
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
+
+    // Utilização de structs para melhor organizar a lógica
     Carta a;
     Carta b;
     
@@ -81,9 +83,9 @@ int main() {
     printf("Digite a quantidade de pontos turísticos da segunda carta:");
     scanf("%i", &b.pontosTuristicos);
 
+    // Cálculo automático de densidade populacional, pib per capita e super poder
     b.densidade = (float)b.populacao / b.area;
     b.pibCapita = b.pib / (float)b.populacao;
-
     b.super = (float)b.populacao + b.area + b.pib + b.pontosTuristicos + b.pibCapita * (1.0 / b.densidade);
 
     // Exibir todas as propriedades da primeira carta cadastrada
@@ -112,11 +114,13 @@ int main() {
     printf("PIB per capita: %f reais\n", b.pibCapita);
     printf("Super poder: %f \n", b.super);
 
+    // Comparar as cartas usando operador ternário
     printf("Comparação das cartas:\n");
     a.populacao > b.populacao ? printf("População: Carta 1 venceu\n") : printf("População: Carta 2 venceu\n");
     a.area > b.area ? printf("Área: Carta 1 venceu\n") : printf("Área: Carta 2 venceu\n");
     a.pib > b.pib ? printf("PIB: Carta 1 venceu\n") : printf("PIB: Carta 2 venceu\n");
     a.pontosTuristicos > b.pontosTuristicos ? printf("Pontos turísticos: Carta 1 venceu\n") : printf("Pontos turísticos: Carta 2 venceu\n");
+    // Densidade é calculada de forma inversa
     a.densidade < b.densidade ? printf("Densidade: Carta 1 venceu\n") : printf("Densidade: Carta 2 venceu\n");
     a.pibCapita > b.pibCapita ? printf("PIB per capita: Carta 1 venceu\n") : printf("PIB per capita: Carta 2 venceu\n");
     a.super > b.super ? printf("Super poder: Carta 1 venceu\n") : printf("Super poder: Carta 2 venceu\n");
