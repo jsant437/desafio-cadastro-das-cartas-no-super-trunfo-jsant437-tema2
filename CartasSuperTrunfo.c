@@ -26,22 +26,24 @@ Carta carta2;
 double pontos1 = 0;
 double pontos2 = 0;
 
-void EscolherAtributo(int op)
+void EscolherAtributo()
 {
-    /*
+    // Print do menu interativo
     printf("Escolha um atributo do menu abaixo digitando um número de 1 a 5 para comparar as cartas:\n");
     printf("1 - População\n");
     printf("2 - Área\n");
     printf("3 - PIB\n");
     printf("4 - Densidade populacional\n");
     printf("5 - PIB per capita\n");
-    */
 
-    // Switch para decidir qual opção o jogador escolheu. No caso do desafio novato, o jogo escolhe a opção 4 automaticamente, conforme enunciado
+    int escolha = 0;
+    scanf("%i", &escolha);
+
+    // Switch para decidir qual opção o jogador escolheu
     // O jogo soma os pontos para no final comparar o total e decidir o vencedor. Isso já é em preparação para o nível mestre, onde 2 atributos precisarão ser escolhidos
     // Aqui por enquanto apenas 1 atributo é levado em consideração
     const double referenciaDensidade = 100000.0; // Número arbitrário usado para acomodar a lógica inversa da densidade populacional
-    switch(op)
+    switch(escolha)
     {
         case 1:
             printf("Escolheu atributo (População):\n");
@@ -186,7 +188,7 @@ int main() {
     printf("\n");
 
     // Armazena o valor do atributo escolhido das duas cartas para comparar depois
-    EscolherAtributo(4);
+    EscolherAtributo();
 
     // Faz a comparação dos valores das duas cartas e mostra o resultado
     CompararCartas();
